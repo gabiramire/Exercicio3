@@ -112,46 +112,46 @@ public class Printer extends JFrame
      
 		panel= new JPanel();
 		panel.setBackground(Color.WHITE);
-		panel.setSize(new Dimension(5,10));
+		
 		
 		panel2= new JPanel();
 		panel2.setBackground(Color.WHITE);
-		panel2.setSize(new Dimension(5,10));
+		
 		
 		panel3= new JPanel();
 		panel3.setBackground(Color.WHITE);
-		panel3.setSize(new Dimension(5,10));
+		
 		
 		
       constraints.fill = GridBagConstraints.BOTH;
       addComponent( text1, 0, 0, 2, 1 );    
        
       constraints.fill= GridBagConstraints.VERTICAL;
-      addComponent( box1, 1, 1, 1, 1);
+      addComponent( box1, 1, 1, 2, 1);
       
       constraints.fill= GridBagConstraints.BOTH;
-      addComponent( panel, 1, 0, 1, 1 );
+      addComponent( panel, 1, 0, 2, 1 );
       
       constraints.fill= GridBagConstraints.BOTH;
       addComponent( panel2, 1, 2, 1, 1 );
       
       constraints.fill= GridBagConstraints.BOTH;
-      addComponent( panel3, 1, 4, 1, 1 );
+      addComponent( panel3, 1, 5, 2, 1 );
       
       constraints.fill= GridBagConstraints.BOTH;
       addComponent( text2, 4, 0, 2, 1 );
       
       constraints.fill= GridBagConstraints.VERTICAL;
-      addComponent( box2, 1, 3, 1, 1 );
+      addComponent( box2, 1, 3, 2, 1 );
       
       constraints.fill= GridBagConstraints.BOTH;
       addComponent( comboBox, 4, 2, 1, 1 );
       
       constraints.fill= GridBagConstraints.BOTH;
-      addComponent( checkBox2, 4, 3, 2, 1 );
+      addComponent( checkBox2, 4, 3, 3, 1 );
       
       constraints.fill= GridBagConstraints.VERTICAL;
-      addComponent( box, 0, 5, 1, 6 );
+      addComponent( box, 0, 7, 1, 6 );
 
 		}
 
