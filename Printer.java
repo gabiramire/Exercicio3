@@ -4,7 +4,10 @@ import java.awt.GridBagConstraints;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 
+import javax.swing.ButtonGroup;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -17,6 +20,7 @@ import javax.swing.JComboBox;
 
 public class Printer extends JFrame 
 { 
+   private RadioButtonHandler radioButtonHandler;
    private GridBagLayout layout; // layout of this frame
    private GridBagConstraints constraints; // constraints of this layout
    private JCheckBox[] checkBox;
@@ -24,11 +28,26 @@ public class Printer extends JFrame
    private JRadioButton[] radioButton;
    private JButton[] buttons;
    private JComboBox comboBox;
+   private ButtonGroup grupo;
    private JPanel panel, panel2, panel3;
    private static final String[] names1 = { "OK", "Cancel", "Setup...", "Help"};
    private static final String[] names2 = { "Image", "Text", "Code"};
    private static final String[] names3 = { "Selection", "All", "Applet"};
    private static final String[] names4 = { "High", "Medium", "Low"};
+   private class RadioButtonHandler implements ItemListener{
+		@Override
+		public void itemStateChanged(ItemEvent e) {
+			if(radioButton[0].isSelected()){
+				
+			}else
+				if(radioButton[1].isSelected()){
+					
+				}else {
+					
+				}
+
+		}
+   }
    
    public Printer()
    {
@@ -56,13 +75,20 @@ public class Printer extends JFrame
       
       
       //RadioButton
+      grupo= new ButtonGroup();
+      radioButtonHandler= new RadioButtonHandler();
       radioButton = new JRadioButton[names3.length];
       Box box2 = Box.createVerticalBox();
       for(int i=0; i<names2.length; i++) {
     	  radioButton[i] = new JRadioButton(names3[i]);
     	  radioButton[i].setMaximumSize(new Dimension(95,25));
+    	  grupo.add(radioButton[i]);
+    	  radioButton[i].addItemListener(radioButtonHandler);
     	  box2.add(radioButton[i]);
       }
+      
+    
+    	 
       
       //ComboBox
       comboBox= new JComboBox(names4);
@@ -110,10 +136,13 @@ public class Printer extends JFrame
       addComponent( panel2, 1, 2, 1, 1 );
       
       constraints.fill= GridBagConstraints.BOTH;
+      addComponent( panel3, 1, 4, 1, 1 );
+      
+      constraints.fill= GridBagConstraints.BOTH;
       addComponent( text2, 4, 0, 2, 1 );
       
       constraints.fill= GridBagConstraints.VERTICAL;
-      addComponent( box2, 1, 4, 1, 1 );
+      addComponent( box2, 1, 3, 1, 1 );
       
       constraints.fill= GridBagConstraints.BOTH;
       addComponent( comboBox, 4, 2, 1, 1 );
@@ -127,8 +156,6 @@ public class Printer extends JFrame
 		}
 
       
-
-   // method to set constraints on 
    private void addComponent( Component component,
       int row, int column, int width, int height )
    {
