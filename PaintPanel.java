@@ -57,9 +57,8 @@ public class PaintPanel extends JPanel {
 		this.tamanho=tamanho;
 	}
 	public void apagar() {
-		for(int j=0; j<100000;j++){
-			points[j]= new Point();
-		}	
+		points = new Point[100000];
+		pointCount=0;	
 		repaint();
 		
 	}
